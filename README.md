@@ -13,11 +13,25 @@ php5.4以上
 
 動かし方
 ------------
-ジョジョ言語
+インストールとかとか
+
+	git@github.com:polidog/Brainf-ck.git
+	
+	#composer無い方
+	curl -s http://getcomposer.org/installer | php
+	
+	composer.phar install 
+
+これで準備完了。あとは実行するだけ！
+
+	php example/brainfuck.php bk/hello.bk
+
+
+ジョジョ言語を動かす
 
  	php example/jojo.php jojo/hello.jojo 
 
-プログラミング言語KQ
+プログラミング言語KQを動かす
 
 	php example/kq.php kq/hello.qk
 
