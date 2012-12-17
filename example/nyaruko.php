@@ -9,8 +9,8 @@ require __DIR__ . '/../vendor/autoload.php';
 /**
  * オブジェクト生成用のクロージャ
  */
-$c = function($class,$params = null) {
-	$class = 'Polidog\\Brainfuck\\'.$class;
+$c = function($class,$params = null,$ns = 'Polidog\\Brainfuck\\') {
+	$class = $ns.$class;
 	return new $class($params);
 };
 
