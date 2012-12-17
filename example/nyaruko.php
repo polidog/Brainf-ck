@@ -14,7 +14,7 @@ $c = function($class,$params = null) {
 	return new $class($params);
 };
 
-$brainfuck = $c('Command',__DIR__)->setMemory($c('Memory')->init(100))->setReplaceCommand([
+$brainfuck = $c('Interpreter',__DIR__)->setMemory($c('Memory')->init(100))->setReplaceCommand([
 	'(」・ω・)」うー(／・ω・)／にゃー' => '>',
 	'(」・ω・)」うー!!(／・ω・)／にゃー!!' => '<',
 	'(」・ω・)」うー!(／・ω・)／にゃー!' => '+',
