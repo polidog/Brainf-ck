@@ -1,6 +1,6 @@
 <?php
 /*
- * brainfuckから他言語への変換用サンプル
+ * jojo言語から他言語への変換用サンプル
  */
 require __DIR__ . '/../vendor/autoload.php';
 use Polidog\Brainfuck\Memory;
@@ -11,6 +11,18 @@ $memory->init(100);
 
 $brainfuck = new Interpreter(__DIR__);
 $brainfuck->setMemory($memory);
+$brainfuck->setReplaceCommand([
+	'スターフィンガー' => '>',
+	'やれやれだぜ' => '>',
+	'ロードローラ' => '<',
+	'貧弱' => '<',
+	'オラ' => '+',
+	'無駄' => '-',
+	"ハーミットパープル" => '.',
+	'新手のスタンド使いか' => ',',
+	'あ・・・ありのまま今起こったことを話すぜ' => '[',
+	'ザ・ワールド' => ']',	
+]);
 
 
 if (isset($argv[1])) {
@@ -19,18 +31,6 @@ if (isset($argv[1])) {
 else {
 	$brainfuck->setCommand();
 }
-
-// KQに変換
-echo $brainfuck->convert([
-	'ﾀﾞｧｲｪｽ' => '>',
-	'ｲｪｽﾀﾞｧ' => '<',
-	'ﾀﾞｧﾀﾞｧ' => '+',
-	'ｼｴﾘｼｴﾘ' => '-',
-	"ｼｴﾘﾀﾞｧ" => '.',
-	'ﾀﾞｧｼｴﾘ' => ',',
-	'ｼｴﾘｲｪｽ' => '[',
-	'ｲｪｽｼｴﾘ' => ']',		
-]);
 
 // ニャルらとホテブ言語
 echo $brainfuck->convert([
