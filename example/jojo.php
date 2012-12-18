@@ -26,9 +26,10 @@ $brainfuck->setReplaceCommand([
 ]);
 
 if (isset($argv[1])) {
-	$brainfuck->inputFile($argv[1]);
+	$brainfuck->setFile($argv[1]);
 }
 else {
-	$brainfuck->inputCommand();
+	$brainfuck->setCommand();
 }
 $brainfuck->exec();
+echo "\n";

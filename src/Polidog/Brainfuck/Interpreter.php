@@ -88,14 +88,14 @@ class Interpreter {
 
 	/**
 	 * コマンドを入力する
-	 * @return boolean
+	 * @return Interpreter | boolean
 	 */
-	public function inputCommand() {
+	public function setCommand() {
 		$input = $this->input();
 		$this->command = trim($input);
 		if (!empty($this->command)) {
 			$this->comandParse();
-			return true;
+			return $this;
 		}
 		return false;
 	}
@@ -103,9 +103,9 @@ class Interpreter {
 	/**
 	 * コマンドを入力する
 	 * @param string $filename 読み込みたいファイル名
-	 * @return boolean
+	 * @return Interpreter | boolean
 	 */
-	public function inputFile($filename) {
+	public function setFile($filename) {
 		$file = $this->basePath . DIRECTORY_SEPARATOR . $filename;
 		if (!file_exists($file)) {
 			return false;
@@ -114,7 +114,7 @@ class Interpreter {
 		$this->command = trim(str_replace("\n", "", $_input));
 		if (!empty($this->command)) {
 			$this->comandParse();
-			return true;
+			return $this;
 		}
 		return false;
 	}

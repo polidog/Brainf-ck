@@ -14,22 +14,9 @@ $c = function($class,$params = null,$ns = 'Polidog\\Brainfuck\\') {
 	return new $class($params);
 };
 
-$brainfuck = $c('Interpreter',__DIR__)->setMemory($c('Memory')->init(100))->setReplaceCommand([
-	'(」・ω・)」うー(／・ω・)／にゃー' => '>',
-	'(」・ω・)」うー!!(／・ω・)／にゃー!!' => '<',
-	'(」・ω・)」うー!(／・ω・)／にゃー!' => '+',
-	'(」・ω・)」うー!!!(／・ω・)／にゃー!!!' => '-',
-	"Let's＼(・ω・)／にゃー" => '.',
-	'cosmic!' => ',',
-	'CHAOS☆CHAOS!' => '[',
-	'I WANNA CHAOS!' => ']',	
-]);
-
 if (isset($argv[1])) {
-	$brainfuck->inputFile($argv[1]);
+	$c('Interpreter',__DIR__)->setMemory($c('Memory')->init(100))->setReplaceCommand(['(」・ω・)」うー(／・ω・)／にゃー' => '>','(」・ω・)」うー!!(／・ω・)／にゃー!!' => '<','(」・ω・)」うー!(／・ω・)／にゃー!' => '+','(」・ω・)」うー!!!(／・ω・)／にゃー!!!' => '-',"Let's＼(・ω・)／にゃー" => '.','cosmic!' => ',','CHAOS☆CHAOS!' => '[','I WANNA CHAOS!' => ']',	])->setFile($argv[1])->exec();
 }
 else {
-	$brainfuck->inputCommand();
+	$c('Interpreter',__DIR__)->setMemory($c('Memory')->init(100))->setReplaceCommand(['(」・ω・)」うー(／・ω・)／にゃー' => '>','(」・ω・)」うー!!(／・ω・)／にゃー!!' => '<','(」・ω・)」うー!(／・ω・)／にゃー!' => '+','(」・ω・)」うー!!!(／・ω・)／にゃー!!!' => '-',"Let's＼(・ω・)／にゃー" => '.','cosmic!' => ',','CHAOS☆CHAOS!' => '[','I WANNA CHAOS!' => ']',	])->setCommand($argv[1])->exec();
 }
-
-$brainfuck->exec();
