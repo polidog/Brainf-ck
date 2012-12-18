@@ -155,6 +155,28 @@ class Interpreter {
 			$i = $this->position;
 		}
 	}
+	
+	
+	/**
+	 * brainfuck形式から他の言語に変換する
+	 * @param array $replaceRule 変換するコードのルール
+	 */
+	public function convert($replaceRule = null) {
+		$match = array_flip($replaceRule);
+		$code = $this->getCommand(true);
+		$length = strlen($code);
+		
+		$return = null;
+		for ($i = 0; $i < $length; $i++) {
+			if ( isset($match[$code[$i]]) ) {
+				$return .= $match[$code[$i]];
+				if ( $i % 80 == 10 ) {
+					$return .= "\n";
+				}
+			}
+		}
+		return $return;
+	}
 
 	/**
 	 * ------------------------------------------------------------
@@ -256,7 +278,7 @@ class Interpreter {
 	
 	
 	/**
-	 * コマンド解析して1コマンドずつ配列にいれる←いれてねーよw
+	 * ソースコードをbf形式に変換する
 	 */
 	protected function comandParse() {
 		$command = $this->command; 
@@ -266,9 +288,22 @@ class Interpreter {
 		}
 		
 		// コマンドもじをbrainfuck形式に置き換える
-		foreach ( $this->replaceCommand as $search => $replace ) {
-			$this->command = str_replace($search, $replace, $this->command);
+		$this->command = $this->_commandParse($this->replaceCommand, $this->command);
+	}
+	
+	
+	/**
+	 * 変換処理
+	 * @param array $replaceRule
+	 * @param string $source
+	 * @return string bf形式のコード
+	 */
+	protected function _commandParse(array $replaceRule,$source) {
+		$return = "";
+		foreach ( $replaceRule as $search => $replace ) {
+			$return = str_replace($search, $replace, $source);
 		}
+		return $return;
 	}
 
 	/**
