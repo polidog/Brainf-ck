@@ -281,7 +281,6 @@ class Interpreter {
 	 * ソースコードをbf形式に変換する
 	 */
 	protected function comandParse() {
-		$command = $this->command; 
 		if ( empty($this->replaceCommand) ) {
 			// 置き換えの必要がない場合は置き換えない
 			return null;
@@ -299,11 +298,10 @@ class Interpreter {
 	 * @return string bf形式のコード
 	 */
 	protected function _commandParse(array $replaceRule,$source) {
-		$return = "";
 		foreach ( $replaceRule as $search => $replace ) {
-			$return = str_replace($search, $replace, $source);
+			$source = str_replace($search, $replace, $source);
 		}
-		return $return;
+		return $source;
 	}
 
 	/**
@@ -321,6 +319,10 @@ class Interpreter {
 			}
 		}
 		return $line;
+	}
+	
+	private function getMbStringArray($str) {
+		return preg_split("//u", $str, -1, PREG_SPLIT_NO_EMPTY);
 	}
 
 }
