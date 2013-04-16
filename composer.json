@@ -2,7 +2,7 @@
 	"name": "polidog/brainf-ck",
 	"description": "PHP Brainf*ck Interpreter",
 	"keywords" : ["cli","console"],
-	"homepage" : "https://github.com/polidog/Console",
+	"homepage" : "https://github.com/polidog/Brainf-ck",
 	"license"  : "MIT",
 	"authors": [
 		{
