@@ -1,4 +1,16 @@
 {
+	"name": "polidog/brainf-ck",
+	"description": "PHP Brainf*ck Interpreter",
+	"keywords" : ["cli","console"],
+	"homepage" : "https://github.com/polidog/Console",
+	"license"  : "MIT",
+	"authors": [
+		{
+			"name": "polidog",
+			"email": "polidogs@gmail.com",
+			"homepage": "http://www.polidog.jp"
+		}
+	],	
     "require": {
         "php": ">=5.4.1"
     },
