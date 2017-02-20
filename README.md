@@ -81,6 +81,13 @@ php5.4以上
 もちろんジョジョ言語からニャルラトホテプ言語にだって変換できます
 
 	php example/convert2.php jojo/hello.jojo
+	
+## けものフレンズだって対応したよ！
+
+
+```php
+php example/kemono.php kemono/hello.kemono
+```
 
 
 
